@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users, defaults: {format: :json}
 
   # users
   post "/login", to: "users#login"
