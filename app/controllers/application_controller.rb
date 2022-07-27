@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
-    before_action :set_current_user, if: :user_signed_in?
+    # before_action :set_current_user, if: :user_signed_in?
+    
 
     def encode_token(payload)
         JWT.encode(payload, 'secret')
@@ -32,10 +33,20 @@ class ApplicationController < ActionController::API
         authorized_user    
     end
 
-    def set_current_user
-        if session[:user_id]
-            Current.user = User.find_by(id: session[:user_id])
-        end
-    end
+    # def set_current_user
+    #     if session[:user_id]
+    #         # Current.user = User.find_by(id: session[:user_id])
+    #         @current_user = User.find_by(id: session[:user_id])
+
+    #         if @current_user.user.admin > 0
+    #             render json: { message: 'You are admin.' }, status: :ok
+    #         else
+    #             render json: { message: 'You have to login as admin.' }, status: :unauthorized 
+    #         end
+    #     end
+
+        
+            
+    # end
     
 end

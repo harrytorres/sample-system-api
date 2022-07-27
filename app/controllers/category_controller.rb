@@ -1,5 +1,6 @@
 class CategoryController < ApplicationController
     before_action :authorize
+    # before_action :set_current_user, only: [:create]
 
     def index
         @categories = Category.all

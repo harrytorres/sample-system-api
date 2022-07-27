@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users, only: [:create] 
+  resources :users
 
   # users
   post "/login", to: "users#login"
